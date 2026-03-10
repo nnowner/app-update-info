@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Update Center</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-50 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 max-w-sm w-full">
+        <h1 class="text-2xl font-bold text-gray-800 mb-6 text-center">App Update</h1>
+        
+        <div class="space-y-4">
+            <div class="p-4 bg-blue-50 rounded-lg">
+                <div class="flex justify-between items-center">
+                    <span class="font-semibold text-blue-700">iOS</span>
+                    <span id="ios-version" class="text-sm bg-blue-200 px-2 py-1 rounded">Loading...</span>
+                </div>
+            </div>
+
+            <div class="p-4 bg-green-50 rounded-lg">
+                <div class="flex justify-between items-center">
+                    <span class="font-semibold text-green-700">Android</span>
+                    <span id="android-version" class="text-sm bg-green-200 px-2 py-1 rounded">Loading...</span>
+                </div>
+            </div>
+        </div>
+
+        <p class="mt-6 text-sm text-gray-500 text-center" id="release-note"></p>
+    </div>
+
+    <script>
+        // JSON 데이터를 읽어와서 화면에 표시
+        fetch('./version.json')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('ios-version').innerText = 'v' + data.ios.version;
+                document.getElementById('android-version').innerText = 'v' + data.android.version;
+                document.getElementById('release-note').innerText = data.release_note;
+            });
+    </script>
+</body>
+</html>
