@@ -1,10 +1,10 @@
 {
   "ios": {
-    "version": "1.1.0+662",
+    "version": "1.1.0+667",
     "link_url": "https://nnowner.github.io/app-update-info"
   },
   "android": {
-    "version": "1.1.0+662",
+    "version": "1.1.0+667",
     "link_url": "https://nnowner.github.io/app-update-info"
   },
   "release_note": "성능 개선 및 버그 수정"
